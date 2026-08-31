@@ -1,1 +1,1 @@
-JS ES6 Classes Project
+# JS ES6 Classes Project
