@@ -1,11 +1,10 @@
--- Script that creates a trigger that resets valid_email only when email changes
-DELIMITER //
-
-CREATE TRIGGER decrease_quantity_after_order
-AFTER INSERT ON orders
+-- Reset atribute valid_email after email has changed.
+DELIMITER $
+CREATE TRIGGER reset_attributeAFTER BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
     UPDATE items
     SET quantity = quantity - NEW.number
     WHERE name = NEW.item_name;
-END //
+END; 
+$
