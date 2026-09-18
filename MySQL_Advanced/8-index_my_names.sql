@@ -1,2 +1,2 @@
 -- Create indexes for the first letter name.
-Create index idx_first_letter_name on students (LEFT(name, 1));
+CREATE INDEX idx_name_first ON names (name(1));
