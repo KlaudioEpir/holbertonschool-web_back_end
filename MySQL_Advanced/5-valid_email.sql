@@ -3,8 +3,8 @@ DELIMITER $
 CREATE TRIGGER reset_attributeAFTER BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
-    UPDATE items
-    SET quantity = quantity - NEW.number
-    WHERE name = NEW.item_name;
+    IF NEW.email <> OLD.email THEN
+        SET NEW.valid_email = 0;
+    END IF;
 END; 
 $
